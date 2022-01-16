@@ -84,7 +84,10 @@ const ColorCard = ({ color, ...rest }) => {
           handleDelete(color.id);
         }}
       >
-        <img src={close} />
+        <img
+          style={{ filter: fontCol == "#ffffff" && "invert(1)" }}
+          src={close}
+        />
       </span>
     </div>
   );
@@ -105,7 +108,7 @@ const ColorCard = ({ color, ...rest }) => {
         deleteDialog
       ) : (
         <span
-          style={{color: fontCol}}
+          style={{ color: fontCol }}
           className="saved_color_name "
           onClick={() => {
             handleCopy(color.data.hex);
