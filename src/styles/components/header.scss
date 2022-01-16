@@ -1,0 +1,136 @@
+.header {
+  background: $header-purple;
+  height: 65px;
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+  box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+  position: relative;
+}
+
+.sing-in-button {
+  border: none;
+  color: white;
+  background: $button-background-purple;
+  font-size: 24px;
+  font-weight: 400;
+  margin: auto 68px;
+  border-radius: 5px;
+  height: 32px;
+  min-width: 111px;
+  &:hover {
+    background: darken($color: $button-background-purple, $amount: 10);
+    cursor: pointer;
+  }
+}
+
+.secound-header {
+  color: #312f2f;
+  font-size: 26px;
+  font-weight: 400;
+  margin-bottom: 59px;
+  padding-left: 0px;
+
+  ul {
+    list-style-type: none;
+    display: flex;
+
+    li {
+      margin-right: 20px;
+      padding-bottom: 8px;
+      cursor: pointer;
+      line-height: 32px;
+
+      &:hover {
+        font-size: 32px;
+        transition: linear 100ms;
+      }
+
+      &.selected-page {
+        border-bottom: 1px solid #bbb6b6;
+      }
+    }
+  }
+}
+
+.logo-title {
+  margin: auto 99px;
+  font-size: 24px;
+  font-weight: 400;
+  color: #fff;
+  user-select: none;
+}
+.header__user-photo__container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-right: 99px;
+}
+
+.header__user-photo {
+  border-radius: 50%;
+  height: 52px;
+  cursor: pointer;
+}
+
+.header__menu {
+  position: absolute;
+  top: 110%;
+  right: 19px;
+  height: 140px;
+  width: 220px;
+  background: $header-purple;
+  border-radius: 10px;
+  color: white;
+  font-size: 18px;
+}
+.header__menu__item {
+  display: flex;
+  align-items: center;
+  //justify-content: space-between;
+  padding: 5px 15px;
+  img {
+    height: 42px;
+    width: 42px;
+  }
+}
+.header__menu__user {
+  border-bottom: 1px solid $backgroud-grey;
+  span {
+    margin-left: 10px;
+  }
+}
+.header__menu__signout {
+  margin-top: 5px;
+  cursor: pointer;
+  transition: 0.5s;
+  span {
+    margin-left: 10px;
+  }
+
+  &:hover {
+    background: lighten($color: $header-purple, $amount: 20);
+  }
+}
+
+.header__signout__image {
+  background: $backgroud-grey;
+  padding: 0px;
+  margin: 0px;
+  border-radius: 50%;
+  height: 42px;
+  width: 42px;
+  img {
+    height: 42px;
+    width: 42px;
+    padding: 10px;
+  }
+}
+@media only screen and (max-width: 600px) {
+  .sing-in-button {
+    margin: auto auto;
+  }
+  .logo-title {
+    margin: auto;
+  }
+}

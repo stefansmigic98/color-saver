@@ -1,0 +1,9 @@
+.not_authorized {
+    background: $backgroud-grey;
+    color: black;
+    font-size: $m-size-font;
+    height: 40px;
+    display: flex;
+    align-items: center;
+    padding: 3px 10px;
+}

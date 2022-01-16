@@ -1,0 +1,92 @@
+.saved_color {
+  width: 20%;
+  height: 390px;
+
+  position: relative;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  padding-left: 0px;
+  font-size: 24px;
+}
+
+.saved-colors {
+  display: flex;
+  flex-wrap: wrap;
+}
+.saved_color_name {
+  cursor: pointer;
+  color: white;
+}
+
+.saved_color_more {
+  position: absolute;
+  top: 10px;
+  right: 20px;
+  margin: 0px;
+  padding: 0px;
+  transition: all 0.5s;
+
+  img {
+    margin: 0px;
+    padding: 0px;
+    height: 30px;
+    filter: invert(100%);
+    cursor: pointer;
+  }
+}
+.saved_color_more_clicked {
+  transform: rotate(90deg);
+}
+
+.saved_color_options {
+  position: absolute;
+  top: 10px;
+  width: 100%;
+  padding-right: 70px;
+  display: flex;
+  flex-direction: row-reverse;
+
+  span {
+    cursor: pointer;
+    translate: visibility 0.4s;
+  }
+
+  img {
+    height: 30px;
+    filter: invert(100%);
+  }
+}
+
+.saved_color_del {
+  color: white;
+  text-align: center;
+  padding: 0px;
+  margin: 0px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
+.saved_color_del_btn {
+  display: flex;
+  justify-content: space-between;
+  width: 250px;
+  margin-top: 20px;
+
+  button {
+    background: $button-background-purple;
+    border: none;
+    width: 120px;
+    color: white;
+    font-size: 14px;
+    height: 32px;
+
+    &:hover {
+      background: darken($color: $button-background-purple, $amount: 10);
+      cursor: pointer;
+    }
+  }
+}

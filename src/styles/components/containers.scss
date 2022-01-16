@@ -1,0 +1,52 @@
+.container_main {
+  width: $page-width;
+  margin: auto;
+  min-height: 100vh;
+  margin-top: 33px;
+  border-radius: 10px;
+  overflow: hidden;
+}
+
+.container_flex {
+  display: flex;
+  //flex-wrap: wrap;
+  justify-content: space-between;
+}
+
+.container_picker {
+  background-color: white;
+  margin: 52px 99px 0 99px;
+}
+
+.container_saved-colors {
+  background-color: white;
+  margin: 52px 99px 0 99px;
+  overflow: hidden;
+  padding: 10px 51px;
+  min-height: 100vh;
+}
+
+.container_flex-column {
+  display: flex;
+  flex-direction: column;
+}
+
+@media only screen and (max-width: 600px) {
+  .container_flex{
+    flex-direction: column;
+  }
+  .container_main{
+    width: 100%;
+    margin-top: 10px;
+  }
+
+  .container_picker {
+   
+    margin: 52px 10px 0 10px;
+    
+  }
+  .container_saved-colors {
+    margin: 10px 10px 10px 10px;
+  }
+  
+}

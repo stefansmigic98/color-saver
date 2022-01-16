@@ -1,0 +1,96 @@
+.Modal {
+  position: absolute;
+  top: 40px;
+  left: auto;
+  right: auto;
+  bottom: 40px;
+  background-color: white;
+  width: 500px;
+  padding: 50px 60px;
+
+  box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+
+  .modal-header {
+    font-size: 24px;
+  }
+
+  button {
+    position: absolute;
+    bottom: 30px;
+    right: 30px;
+    min-width: 128px;
+    border: none;
+    background: $button-background-purple;
+    color: white;
+    height: 32px;
+    font-size: 18px;
+    
+    &:disabled{
+      cursor: auto;
+      background: lighten($color: $button-background-purple, $amount: 10);
+      pointer-events: none;
+
+    }
+
+    &:hover {
+      background: darken($color: $button-background-purple, $amount: 10);
+      cursor: pointer;
+    }
+  }
+}
+
+.Overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: transparent;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.close-icon {
+  background: transparent;
+  width: auto;
+  height: 30px;
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  cursor: pointer;
+}
+
+.modal-collections-item {
+  border-bottom: 1px solid #898282;
+  padding-bottom: 8px;
+  padding-top: 8px;
+  font-size: 18px;
+  cursor: pointer;
+
+  &:hover{
+    background: darken($color:white, $amount: 10);
+  }
+}
+.modal-collections-header {
+  display: block;
+  color: #898282;
+  font-size: 18px;
+  margin-top: 12px;
+  padding-bottom: 8px;
+  border-bottom: 1px solid #898282;
+}
+
+.modal-collections-selected {
+  background: darken($color: white, $amount: 10);
+}
+
+@media only screen and (max-width: 600px) {
+  .Modal{
+    width: 350px;
+   
+  }
+  .Overlay{
+    z-index:3 ;
+  }
+}

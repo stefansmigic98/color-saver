@@ -1,0 +1,110 @@
+.preview {
+  width: 352px;
+  min-height: 200px;
+  margin-right: 50px;
+  margin-top: 20px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.color-values-area {
+  display: flex;
+  justify-content: space-between;
+  width: 352px;
+  margin-top: 10px;
+}
+
+.color-value {
+  min-height: 30px;
+  min-width: 172px;
+  background: white;
+  border: 1px solid $content-background;
+  display: flex;
+  padding-left: 5px;
+  align-items: center;
+  position: relative;
+
+  /*
+  .preview_copy {
+    position: absolute;
+    right: 4px;
+  }
+  */
+
+  .copy_icon {
+    height: 20px;
+    cursor: pointer;
+  }
+
+  span {
+    font-size: 16px;
+    font-weight: 400;
+    color: #312f2f;
+  }
+}
+
+.preview_tooltip {
+  margin: 0px;
+  position: absolute;
+  right: 4px;
+
+  &:hover::before {
+    content: "Copy";
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: absolute;
+    padding: 1px 3px;
+    border-radius: 5px;
+    top: -35px;
+    left: -110%;
+    height: 27px;
+    width: 75px;
+    background: #cacaca;
+    color: white;
+    z-index: 100;
+  }
+}
+
+.preview_buttons {
+  display: flex;
+  justify-content: space-between;
+  width: 352px;
+  margin-top: 15px;
+  margin-bottom: 20px;
+
+  button:disabled{
+    background: lighten($color: $button-background-purple, $amount: 20);
+  }
+
+  button {
+    min-width: 172px;
+    border: none;
+    background: $button-background-purple;
+    color: white;
+    height: 32px;
+    font-size: 14px;
+
+    &:hover:not([disabled]) {
+      background: darken($color: $button-background-purple, $amount: 10);
+      cursor: pointer;
+    }
+  }
+}
+
+.preview_copied {
+  font-size: $l-size-font;
+}
+
+@media only screen and (max-width: 600px) {
+  .preview {
+    margin: 20px auto;
+  }
+  .color-values-area {
+    margin: auto;
+  }
+  .preview_buttons {
+    margin: 10px auto;
+  }
+}

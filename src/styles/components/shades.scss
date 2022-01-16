@@ -1,0 +1,27 @@
+.shades {
+  margin-right: 50px;
+  margin-top: 20px;
+
+  span{
+      margin-left: 5px;
+  }
+}
+.shades_items {
+  display: flex;
+  flex-wrap: wrap;
+  max-width: 380px;
+}
+.shades_item {
+  height: 85px;
+  width: 85px;
+  margin: 5px;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  span {
+    cursor: pointer;
+  }
+    
+}

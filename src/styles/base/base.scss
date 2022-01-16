@@ -1,0 +1,18 @@
+$page-width: 100%;
+$body-background: #1f1d36;
+$content-background: #864879;
+$header-purple: #1f1d36;
+$button-background-purple: #aa14f0;
+$backgroud-grey:#EEEEEE;
+
+$l-size-font: 25px;
+$m-size-font: 18px;
+
+body {
+  background: $backgroud-grey;
+}
+
+* {
+  font-family: "Roboto", sans-serif;
+  box-sizing: border-box;
+}
