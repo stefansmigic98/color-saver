@@ -37,16 +37,24 @@
   }
   .container_main{
     width: 100%;
-    margin-top: 10px;
+  margin-top: 10px;
   }
 
   .container_picker {
    
-    margin: 52px 10px 0 10px;
+    margin: 52px 0px 0px 0px;
+    padding: 0px;
     
   }
   .container_saved-colors {
     margin: 10px 10px 10px 10px;
+  }
+
+  .container_saved-colors{
+    margin-left: 10px;
+    margin-right: 10px;
+
+    padding: 0px;
   }
   
 }

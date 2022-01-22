@@ -1,10 +1,17 @@
+import { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { setSelectedCollectionAction } from "../actions/collectionActions";
+import {
+  fetchCollectionsAction,
+  setSelectedCollectionAction,
+} from "../actions/collectionActions";
 
 const SelectCollection = () => {
-  const selected = useSelector((x) => x.collectionReducer.selected);
+  const {selected,collections} = useSelector((x) => x.collectionReducer);
   const dispatch = useDispatch();
 
+  useEffect(() => {
+    dispatch(fetchCollectionsAction());
+  }, []);
   const selectCollection = (col, e) => {
     dispatch(setSelectedCollectionAction(col));
   };
@@ -14,14 +21,16 @@ const SelectCollection = () => {
       <span>{!!selected ? selected.name : "No collection selected"}</span>
       <span className="modal-collections-header">COLLECTION</span>
       <div className="container_flex-column">
-        {collectionsArry.map((item) => (
+        {collections.map((item) => (
           <span
             onClick={(e) => selectCollection(item, e)}
             className={`modal-collections-item ${
-              !!selected && selected.id == item.id ? "modal-collections-selected" : ""
+              !!selected && selected.id == item.id
+                ? "modal-collections-selected"
+                : ""
             }`}
           >
-            {item.name}
+            {item.data.name}
           </span>
         ))}
       </div>

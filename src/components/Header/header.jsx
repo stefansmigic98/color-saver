@@ -1,4 +1,4 @@
-import { getAuth, signInWithPopup, GoogleAuthProvider } from "firebase/auth";
+import { getAuth, signInWithPopup, GoogleAuthProvider,signInWithRedirect } from "firebase/auth";
 import { useRef } from "react";
 import { useEffect } from "react";
 import { useState } from "react";
@@ -30,7 +30,7 @@ const Header = () => {
 
   const signin = () => {
     const auth = getAuth();
-    signInWithPopup(auth, provider)
+    signInWithRedirect(auth, provider)
       .then((res) => {
         return;
       })

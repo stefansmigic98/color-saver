@@ -25,3 +25,15 @@
   }
     
 }
+
+@media only screen and (max-width: 600px) {
+  .shades {
+    margin: 10px 10px;
+  }
+  .shades_item {
+    width: 30%;
+    height: 60px;
+    font-size: 13px;
+  }
+
+}
