@@ -16,6 +16,18 @@ const setSelectedCollectionAction = (collection) => {
 
 }
 
+export const showAddToCollectionAction = () =>{
+    return {
+        type:"SHOW_ADD_TO_COLLECTION"
+    }
+}
+export const hideAddToCollectionAction = () =>{
+    return {
+        type:"HIDE_ADD_TO_COLLECTION"
+    }
+}
+
+
 const removeSelectedCollectionAction = () => {
     return {
         type: "REMOVE_SELECTED_COLLECTION"
@@ -36,7 +48,7 @@ export const createCollectionAction = (collectionName) => {
     }
 }
 export const fetchCollectionsAction = () => {
-    return (dispatch, getState) => {
+    return  (dispatch, getState) => {
         const state = getState();
         const uid = state.authReducer.uid;
         getDocs(collection(db, `users/${uid}/collections`)).then((snapshot) => {
@@ -48,4 +60,6 @@ export const fetchCollectionsAction = () => {
             .catch(err => console.log(err));
     }
 }
+
+
 export { setSelectedCollectionAction, removeSelectedCollectionAction }

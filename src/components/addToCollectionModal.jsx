@@ -4,8 +4,11 @@ import { useDispatch } from "react-redux";
 import { useSelector } from "react-redux";
 import {
   createCollectionAction,
+  hideAddToCollectionAction,
   removeSelectedCollectionAction,
+  showAddToCollectionAction
 } from "../actions/collectionActions";
+import { startAddColorToCollection } from "../actions/colorsActions";
 import close from "../resources/close_111152.png";
 import SelectCollection from "./selectCollection";
 
@@ -13,15 +16,15 @@ const AddToCollectionModal = ({ disabled, ...rest }) => {
   const [isOpen, setIsOpen] = useState(false);
   const [showNewCollection, setShowNewCollection] = useState(false);
   const [collectionName, setCollectionName] = useState("");
-  const selected = useSelector((x) => x.collectionReducer.selected);
+  const {selected,showAddToCollection} = useSelector((x) => x.collectionReducer);
   const dispatch = useDispatch();
 
   const closeModal = () => {
     dispatch(removeSelectedCollectionAction());
-    setIsOpen(false);
+    dispatch(hideAddToCollectionAction());
   };
   const openModal = () => {
-    setIsOpen(true);
+   dispatch(showAddToCollectionAction());
   };
   const handleShowNewCollection = () => {
     if (showNewCollection) setShowNewCollection(false);
@@ -34,20 +37,24 @@ const AddToCollectionModal = ({ disabled, ...rest }) => {
   const addCollection = () => {
     dispatch(createCollectionAction(collectionName));
   };
+
+  const handleAddToCollection = () => {
+    dispatch(startAddColorToCollection());
+  };
   return (
     <div>
       <button disabled={disabled} onClick={openModal}>
         ADD TO COLLECTION
       </button>
       <ReactModal
-        isOpen={isOpen}
+        isOpen={showAddToCollection}
         onRequestClose={closeModal}
         className="Modal"
         overlayClassName="Overlay"
       >
         <img className="close-icon" src={close} onClick={closeModal} />
         <button
-          onClick={closeModal}
+          onClick={handleAddToCollection}
           className="Modal__submit"
           disabled={!!!selected}
         >

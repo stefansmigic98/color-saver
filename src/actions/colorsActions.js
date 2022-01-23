@@ -1,5 +1,6 @@
 import { addDoc, collection, getDocs, deleteDoc, doc } from "@firebase/firestore"
 import { db } from "../firebase/firebase"
+import { hideAddToCollectionAction } from "./collectionActions"
 
 const setColorAction = (color) => {
     return {
@@ -42,13 +43,13 @@ const startDeleteColor = (colorId) => {
 }
 
 const startSaveColor = () => {
-    return  async (dispatch, getState) => {
+    return async (dispatch, getState) => {
         const state = getState();
         const uid = state.authReducer.uid;
         const color = state.colorReducer.color;
         try {
             const docRef = await addDoc(collection(db, `users/${uid}/colors`), color);
-        
+
             dispatch(setSavedColors([{ id: docRef.id, data: color }, ...state.colorReducer.savedColors]))
 
         }
@@ -57,6 +58,25 @@ const startSaveColor = () => {
         }
     }
 }
+
+export const startAddColorToCollection = () => {
+    return async (dispatch, getState) => {
+        const state = getState();
+        const uid = state.authReducer.uid;
+        const color = state.colorReducer.color;
+        const selectedCollection = state.collectionReducer.selected;
+        try {
+            const docRef = await addDoc(collection(db, `users/${uid}/collections/${selectedCollection.id}/colors`), color);
+            dispatch(hideAddToCollectionAction());
+
+        }
+        catch (e) {
+            console.log(e);
+        }
+
+    }
+}
+
 const startGetColors = () => {
 
     return (dispatch, getState) => {
@@ -72,6 +92,7 @@ const startGetColors = () => {
             });
     }
 }
+
 
 
 export { setColorAction, startGetColors, startSaveColor, setSavedColors, deleteColorAction, startDeleteColor }
