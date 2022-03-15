@@ -1,12 +1,12 @@
 import { useEffect } from "react";
 import { useSelector } from "react-redux";
+import { RootState } from "../store";
 
 import ColorCard from "./colorCard";
-import ColorsHeader from "./colorsHeader";
 ///https://htmlcolorcodes.com/color-chart/web-safe-color-chart/
-const SavedColors = () => {
-  const { savedColors } = useSelector((state) => state.colorReducer);
-  
+const SavedColors: React.FC<{}> = () => {
+  const { savedColors } = useSelector((state: RootState) => state.colorReducer);
+
   return (
     <div className="saved-colors">
       {savedColors.map((color) => (
@@ -15,6 +15,5 @@ const SavedColors = () => {
     </div>
   );
 };
-
 
 export default SavedColors;

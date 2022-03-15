@@ -6,19 +6,25 @@ import { useDispatch } from "react-redux";
 import { startDeleteColor } from "../actions/colorsActions";
 import { useEffect } from "react";
 import { getFontColor } from "../utils/colors";
+import { SavedColor } from "../reducers/colorReducer";
 
-const ColorCard = ({ color, ...rest }) => {
+interface ColorCardProps {
+  color: SavedColor;
+  [key: string]: any;
+}
+
+const ColorCard: React.FC<ColorCardProps> = ({ color, ...rest }) => {
   const [isCopied, setIsCopied] = useState(false);
   const [displayOptions, setDisplayOptions] = useState(false);
   const [deleteClicked, setDeleteClicked] = useState(false);
-  const [fontCol, setFontCol] = useState(null);
+  const [fontCol, setFontCol] = useState<string>('');
   const dispatch = useDispatch();
 
   useEffect(() => {
     let font = getFontColor(color.data.rgb);
     setFontCol(font);
   }, []);
-  const handleCopy = (color) => {
+  const handleCopy = (color:string) => {
     setIsCopied(true);
     setTimeout(() => {
       setIsCopied(false);
@@ -36,7 +42,7 @@ const ColorCard = ({ color, ...rest }) => {
     }
   };
 
-  const handleDelete = (color) => {
+  const handleDelete = () => {
     if (deleteClicked) {
       setDeleteClicked(false);
     } else {
@@ -44,7 +50,7 @@ const ColorCard = ({ color, ...rest }) => {
     }
   };
 
-  const confirmDelete = (decis) => {
+  const confirmDelete = (decis:boolean) => {
     if (decis) {
       //delete item
       dispatch(startDeleteColor(color.id));
@@ -81,11 +87,11 @@ const ColorCard = ({ color, ...rest }) => {
     <div className="saved_color_options">
       <span
         onClick={() => {
-          handleDelete(color.id);
+          handleDelete();
         }}
       >
         <img
-          style={{ filter: fontCol == "#ffffff" && "invert(1)" }}
+         /* style={{ filter: fontCol == "#ffffff" && "invert(1)" }}*/
           src={close}
         />
       </span>

@@ -1,22 +1,30 @@
-import { getAuth, signInWithPopup, GoogleAuthProvider,signInWithRedirect } from "firebase/auth";
+import {
+  getAuth,
+  signInWithPopup,
+  GoogleAuthProvider,
+  signInWithRedirect,
+} from "firebase/auth";
 import { useRef } from "react";
 import { useEffect } from "react";
 import { useState } from "react";
 import { useSelector } from "react-redux";
 import { firebase, provider } from "../../firebase/firebase";
 import logout from "../../resources/logout.png";
+import { RootState } from "../../store";
 
-const Header = () => {
-  const user = useSelector((state) => state.authReducer);
-  const [toggleMenu, setToggleMenu] = useState(false);
-  const menuRef = useRef();
+
+
+const Header: React.FC<{}> = () => {
+  const user = useSelector((state: RootState) => state.authReducer);
+  const [toggleMenu, setToggleMenu] = useState<boolean>(false);
+  const menuRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
-    const checkIfClickedOutside = (e) => {
+    const checkIfClickedOutside = (e:Event ) => {
       if (
         toggleMenu &&
         menuRef.current &&
-        !menuRef.current.contains(e.target)
+        !menuRef.current.contains(e.target as Node)
       ) {
         setToggleMenu(false);
       }

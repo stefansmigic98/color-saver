@@ -94,3 +94,18 @@
     z-index:3 ;
   }
 }
+
+.modal__new-collection {
+  color: $button-background-purple;
+  cursor: pointer;
+}
+.modal__down {
+  height: 14px;
+  cursor: pointer;
+  margin-left: 14px;
+
+}
+.modal_collection-form {
+  display: flex;
+  justify-content: space-between;
+}

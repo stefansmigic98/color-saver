@@ -4,7 +4,7 @@ const initialState = {
     selected: null,
     showAddToCollection: false
 }
-export default (collection = initialState, {type,payload}) => {
+export default (collection:any = initialState, {type,payload}:any) => {
     switch (type) {
         case 'SET_COLLECTIONS':
             return { ...collection, collections: [...payload] };

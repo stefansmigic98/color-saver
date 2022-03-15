@@ -8,7 +8,7 @@ const ColorsHeader = () => {
   const dispatch = useDispatch();
 
   const handlePageChange = (pageName) => {
-    dispatch(setPageAction({ page: pageName }));
+    dispatch(setPageAction(pageName ));
   };
 
   const selectedClassName = "selected-page";

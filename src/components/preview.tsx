@@ -7,13 +7,14 @@ import { copyText } from "../utils/copy";
 import { getFontColor, rgbToString } from "../utils/colors";
 import { useState } from "react";
 import { useEffect } from "react";
+import { RootState } from "../store";
 
 const Preview = () => {
   const [isCopied, setIsCopied] = useState(false);
   const [fontColor, setFontColor] = useState("#ffffff");
   const dispatch = useDispatch();
-  const authState = useSelector((state) => state.authReducer);
-  const colorState = useSelector((state) => state.colorReducer);
+  const authState = useSelector((state: RootState) => state.authReducer);
+  const colorState = useSelector((state: RootState) => state.colorReducer);
 
   useEffect(() => {
     setFontColor(getFontColor(colorState.color.rgb));
@@ -23,7 +24,7 @@ const Preview = () => {
     dispatch(startSaveColor());
   };
 
-  const handleCopy = (color) => {
+  const handleCopy = (color:string) => {
     setIsCopied(true);
     setTimeout(() => {
       setIsCopied(false);

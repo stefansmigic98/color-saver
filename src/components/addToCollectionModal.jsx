@@ -6,17 +6,21 @@ import {
   createCollectionAction,
   hideAddToCollectionAction,
   removeSelectedCollectionAction,
-  showAddToCollectionAction
+  showAddToCollectionAction,
 } from "../actions/collectionActions";
 import { startAddColorToCollection } from "../actions/colorsActions";
 import close from "../resources/close_111152.png";
+import down from "../resources/angle-down-solid.svg";
+import CollectionForm from "./CollectionForm";
 import SelectCollection from "./selectCollection";
 
 const AddToCollectionModal = ({ disabled, ...rest }) => {
   const [isOpen, setIsOpen] = useState(false);
   const [showNewCollection, setShowNewCollection] = useState(false);
   const [collectionName, setCollectionName] = useState("");
-  const {selected,showAddToCollection} = useSelector((x) => x.collectionReducer);
+  const { selected, showAddToCollection } = useSelector(
+    (x) => x.collectionReducer
+  );
   const dispatch = useDispatch();
 
   const closeModal = () => {
@@ -24,7 +28,7 @@ const AddToCollectionModal = ({ disabled, ...rest }) => {
     dispatch(hideAddToCollectionAction());
   };
   const openModal = () => {
-   dispatch(showAddToCollectionAction());
+    dispatch(showAddToCollectionAction());
   };
   const handleShowNewCollection = () => {
     if (showNewCollection) setShowNewCollection(false);
@@ -62,9 +66,13 @@ const AddToCollectionModal = ({ disabled, ...rest }) => {
         </button>
         <span className="modal-header">Select collection</span>
         <br />
-        <span onClick={handleShowNewCollection}>Create new collection</span>
+        <div onClick={handleShowNewCollection}>
+          <span className="modal__new-collection">Create new collection</span>
+          <img src={down} className="modal__down" />
+        </div>
         {showNewCollection && (
-          <div>
+          <CollectionForm />
+          /*<div>
             <input
               type="text"
               value={collectionName}
@@ -72,7 +80,7 @@ const AddToCollectionModal = ({ disabled, ...rest }) => {
               placeholder="Collection name"
             />
             <button onClick={addCollection}>ADD</button>
-          </div>
+          </div>*/
         )}
         <SelectCollection />
       </ReactModal>

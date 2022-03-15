@@ -1,10 +1,15 @@
 import { copyText } from "../utils/copy";
 import { useState } from "react";
 
-const ShadesItem = ({ color, font, ...rest }) => {
+interface ShadesItemProps {
+  color: string;
+  font: string;
+}
+
+const ShadesItem: React.FC<ShadesItemProps> = ({ color, font }) => {
   const [isCopied, setIsCopied] = useState(false);
 
-  const handleCopy = (color) => {
+  const handleCopy = (color: string) => {
     setIsCopied(true);
     setTimeout(() => {
       setIsCopied(false);
