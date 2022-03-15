@@ -35,7 +35,7 @@ onAuthStateChanged(auth, (user: any) => {
 ReactDOM.render(
   <React.StrictMode>
     <Provider store={store}>
-      <TextInput label='Username' className='stefan' />
+      <App/>
     </Provider>
   </React.StrictMode>,
   document.getElementById("root")

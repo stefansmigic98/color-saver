@@ -24,12 +24,11 @@
     color: white;
     height: 32px;
     font-size: 18px;
-    
-    &:disabled{
+
+    &:disabled {
       cursor: auto;
       background: lighten($color: $button-background-purple, $amount: 10);
       pointer-events: none;
-
     }
 
     &:hover {
@@ -68,8 +67,8 @@
   font-size: 18px;
   cursor: pointer;
 
-  &:hover{
-    background: darken($color:white, $amount: 10);
+  &:hover {
+    background: darken($color: white, $amount: 10);
   }
 }
 .modal-collections-header {
@@ -86,12 +85,11 @@
 }
 
 @media only screen and (max-width: 600px) {
-  .Modal{
+  .Modal {
     width: 350px;
-   
   }
-  .Overlay{
-    z-index:3 ;
+  .Overlay {
+    z-index: 3;
   }
 }
 
@@ -103,9 +101,26 @@
   height: 14px;
   cursor: pointer;
   margin-left: 14px;
-
 }
 .modal_collection-form {
   display: flex;
   justify-content: space-between;
+  padding-left: 0px;
+  padding-right: 0px;
+  margin-top: 15px;
+  margin-bottom: 15px;
+}
+.modal_collection-submit {
+  min-width: 128px;
+  border: none;
+  background: $button-background-purple;
+  color: white;
+  height: 32px;
+  font-size: 18px;
+
+
+  &:hover {
+    background: darken($color: $button-background-purple, $amount: 10);
+    cursor: pointer;
+  }
 }
